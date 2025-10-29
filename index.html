@@ -1136,37 +1136,47 @@ Ask for a quote by phone.
     });
 
     // BURGER MENU LOGIC
-    const navOpenBtn = document.getElementById('navOpenBtn');
-    const navCloseBtn = document.getElementById('navCloseBtn');
-    const navOverlay = document.getElementById('navDropdown');
-    const navOpenBtnEl = document.getElementById('navOpenBtn');
-    const navCloseBtnEl = document.getElementById('navCloseBtn');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navOpenBtn = document.getElementById('navOpenBtn');   // burger button
+    const navCloseBtn = document.getElementById('navCloseBtn'); // X button inside dropdown
+    const navOverlay = document.getElementById('navDropdown');  // dark overlay + panel
+    const navLinks = document.querySelectorAll('.nav-link');    // all links in menu
+
+    function openNav() {
+      // show dropdown
+      navOverlay.classList.add('active');
+      // hide burger
+      navOpenBtn.classList.add('hidden');
+    }
 
     function closeNav() {
+      // hide dropdown
       navOverlay.classList.remove('active');
-    }
-    function openNav() {
-      navOverlay.classList.add('active');
+      // show burger back
+      navOpenBtn.classList.remove('hidden');
     }
 
-    navOpenBtn.addEventListener('click', () => {
-      navOverlay.classList.add('active');
-      navOpenBtnEl.classList.add('hidden');
-    });
-    navLinks.forEach(link=>{
-      link.addEventListener('click', closeNav);
-    });
+    // open menu
+    navOpenBtn.addEventListener('click', openNav);
 
-    // smooth scroll для якорей
-    navLinks.forEach(link=>{
-      link.addEventListener('click', (e)=>{
+    // close menu on X
+    if (navCloseBtn) {
+      navCloseBtn.addEventListener('click', closeNav);
+    }
+
+    // close + smooth scroll when clicking any menu link
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
         const href = link.getAttribute('href');
-        if(href && href.startsWith('#')){
+
+        // close the nav first so burger reappears
+        closeNav();
+
+        // smooth scroll for internal anchors
+        if (href && href.startsWith('#')) {
           e.preventDefault();
           const target = document.querySelector(href);
-          if(target){
-            target.scrollIntoView({behavior:'smooth'});
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
           }
         }
       });
