@@ -203,7 +203,12 @@
       font-size: .95rem;
       display: block;
     }
-    /* HERO */
+    
+    /* hide burger when menu open */
+    .nav-burger-btn.hidden {
+      display: none;
+    }
+/* HERO */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -1169,6 +1174,32 @@ Ask for a quote by phone.
             target.scrollIntoView({behavior:'smooth'});
           }
         }
+      });
+    });
+
+    // NAV dropdown logic
+    const navOverlay    = document.getElementById('navDropdown');
+    const navOpenBtnEl  = document.getElementById('navOpenBtn');
+    const navCloseBtnEl = document.getElementById('navCloseBtn');
+    const navLinks      = document.querySelectorAll('.nav-close-on-click');
+
+    // open
+    navOpenBtnEl.addEventListener('click', () => {
+      navOverlay.classList.add('active');
+      navOpenBtnEl.classList.add('hidden');
+    });
+
+    // close by X
+    navCloseBtnEl.addEventListener('click', () => {
+      navOverlay.classList.remove('active');
+      navOpenBtnEl.classList.remove('hidden');
+    });
+
+    // close by clicking any link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navOverlay.classList.remove('active');
+        navOpenBtnEl.classList.remove('hidden');
       });
     });
 
