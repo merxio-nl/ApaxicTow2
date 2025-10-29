@@ -336,8 +336,8 @@
 
     .service-toggle-icon {
       color: #000;
-      background: var(--brand-yellow);
-      border: 2px solid #000;
+      background: rgba(244,197,51,0.25);
+      border: 1px solid #000;
       border-radius: .5rem;
       font-size: .8rem;
       font-weight: 600;
@@ -345,8 +345,6 @@
       padding: .4rem .5rem;
       min-width: 2rem;
       text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      user-select: none;
     }
 
     /* collapsed preview text (always visible) */
@@ -354,13 +352,18 @@
       font-size: .9rem;
       color: #444;
       line-height: 1.5;
-      margin-top: .5rem;
+      margin-top: .75rem;
       white-space: pre-line;
-      display: none;
+
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height .3s ease, opacity .25s ease;
     }
 
     .service-card.expanded .service-preview {
-      display: block;
+      max-height: 400px;
+      opacity: 1;
     }
 
     /* expandable full text (hidden by default) */
@@ -373,11 +376,19 @@
 
       max-height: 0;
       overflow: hidden;
-      transition: max-height .3s ease;
+      opacity: 0;
+      transition: max-height .3s ease, opacity .25s ease;
     }
 
     .service-card.expanded .service-full {
-      max-height: 400px; /* big enough to show full answer */
+      max-height: 400px;
+      opacity: 1;
+    }
+
+    /* small hint style change when opened */
+    .service-card.expanded .service-toggle-icon {
+      background: rgba(0,0,0,0.8);
+      color: var(--brand-yellow);
     }
 
     /* small hint style change when opened */
@@ -1044,11 +1055,14 @@ Ask for a quote by phone.
     // ACCORDION LOGIC for service cards
     const cards = document.querySelectorAll('[data-accordion]');
     cards.forEach(card => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('expanded');
-      });
-    });
-  </script>
+      const btn = card.querySelector('.service-toggle-icon');
+      if(btn){
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          card.classList.toggle('expanded');
+        });
+      }
+    });</script>
 
 </body>
 </html>
