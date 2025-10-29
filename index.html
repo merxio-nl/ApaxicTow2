@@ -206,7 +206,7 @@
     /* HERO */
     .hero {
       position: relative;
-      min-height: 70vh;
+      min-height: 100vh;
       color: var(--text-light);
       display: flex;
       align-items: flex-end;
@@ -712,13 +712,13 @@
     </div>
 
     <div class="nav-links">
-      <a href="#services" class="nav-link nav-close-on-click">How We Help</a>
-      <a href="#reviews" class="nav-link nav-close-on-click">Customer Reviews</a>
-      <a href="#about" class="nav-link nav-close-on-click">About / Photos</a>
-      <a href="#contact" class="nav-link nav-close-on-click">Contact</a>
+      <a href="#services" class="nav-link">How We Help</a>
+      <a href="#reviews" class="nav-link">Customer Reviews</a>
+      <a href="#about" class="nav-link">About / Photos</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </div>
 
-    <a class="nav-call-btn nav-close-on-click" href="tel:+12242249240">
+    <a class="nav-call-btn" href="tel:+12242249240">
       Call Now: +1 (224) 224-9240
     </a>
   </div>
@@ -1141,24 +1141,42 @@ Ask for a quote by phone.
     const navOverlay = document.getElementById('navDropdown');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    function closeNav() {
-      navOverlay.classList.remove('active');
-    }
     function openNav() {
       navOverlay.classList.add('active');
+      navOpenBtn.classList.add('hidden');
     }
 
+    function closeNav() {
+      navOverlay.classList.remove('active');
+      navOpenBtn.classList.remove('hidden');
+    }
+
+    // open burger
     navOpenBtn.addEventListener('click', openNav);
+
+    // close with X
     navCloseBtn.addEventListener('click', closeNav);
-    navOverlay.addEventListener('click', (e)=>{
-      // клик по тёмному фону тоже закрывает
-      if(e.target === navOverlay){ closeNav(); }
-    });
-    navLinks.forEach(link=>{
-      link.addEventListener('click', closeNav);
+
+    // close when clicking any link
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        // smooth scroll if it's an anchor
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          closeNav();
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else {
+          closeNav();
+        }
+      });
     });
 
     // smooth scroll для якорей
+    ll для якорей
     navLinks.forEach(link=>{
       link.addEventListener('click', (e)=>{
         const href = link.getAttribute('href');
@@ -1169,29 +1187,6 @@ Ask for a quote by phone.
             target.scrollIntoView({behavior:'smooth'});
           }
         }
-      });
-    });
-
-    // NAV overlay logic
-    const navOverlay    = document.getElementById('navOverlay');
-    const navOpenBtnEl  = document.getElementById('navOpenBtn');
-    const navCloseBtnEl = document.getElementById('navCloseBtn');
-    const navLinks      = document.querySelectorAll('.nav-close-on-click');
-
-    navOpenBtnEl.addEventListener('click', () => {
-      navOverlay.classList.add('active');
-      navOpenBtnEl.classList.add('hidden');
-    });
-
-    navCloseBtnEl.addEventListener('click', () => {
-      navOverlay.classList.remove('active');
-      navOpenBtnEl.classList.remove('hidden');
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navOverlay.classList.remove('active');
-        navOpenBtnEl.classList.remove('hidden');
       });
     });
 
