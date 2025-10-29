@@ -386,7 +386,77 @@
       background-color: #fff;
     }
 
-    .review-grid {
+    
+    .review-card {
+      position: relative;
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: .75rem;
+      margin-bottom: .5rem;
+    }
+
+    .review-meta {
+      font-size: .8rem;
+      font-weight: 600;
+      color: #000;
+      line-height: 1.3;
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+    }
+
+    .review-stars {
+      display: flex;
+      align-items: center;
+      gap: .15rem;
+      line-height: 1;
+    }
+
+    .star-icon {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+    }
+
+    .star-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .star-icon.filled svg path {
+      fill: #F4C533;
+      stroke: #000;
+      stroke-width: 1.5;
+    }
+
+    .star-icon.empty svg path {
+      fill: #fff;
+      stroke: #000;
+      stroke-width: 1.5;
+    }
+
+    .review-photo {
+      flex-shrink: 0;
+      border-radius: .5rem;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      width: 64px;
+      height: 64px;
+      background-color: #fff;
+    }
+
+    .review-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+.review-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(320px,100%), 1fr));
       gap: 1rem;
@@ -840,30 +910,108 @@ Ask for a quote by phone.
         People trust us with their car, and their safety. That matters.
       </p>
 
+      
       <div class="review-grid">
+        <!-- REVIEW 1 -->
         <div class="review-card reveal">
+          <div class="review-header">
+            <div class="review-meta">
+              <div class="review-stars"><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span></div>
+              <div>“Pulled me out of the bushes.”</div>
+            </div>
+            <div class="review-photo">
+              <img src="review-crash.jpg" alt="Vehicle loaded on a flatbed after an accident">
+            </div>
+          </div>
           <p class="review-text">
-            “I called Apaxic when my truck broke down near Tacoma. They arrived in under 30 minutes, loaded the truck carefully, and treated me with respect. Super professional.”
+            I don’t know exactly what happened, but I flew off the road and my car ended up in the bushes.
+            Thank God I wasn’t hurt. This guy arrived quickly and pulled my car out without any extra damage.
+            He even gave me some water! I’m very grateful!
           </p>
-          <div class="review-author">— Jason P., Tacoma WA</div>
+          <div class="review-author">— A.S.</div>
         </div>
 
+        <!-- REVIEW 2 -->
         <div class="review-card reveal">
+          <div class="review-header">
+            <div class="review-meta">
+              <div class="review-stars"><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon empty"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span></div>
+              <div>“Professional operator.”</div>
+            </div>
+          </div>
           <p class="review-text">
-            “My battery died before work. I was already stressed. They came out, jump started it, and made sure I was okay to drive. Very calm, very polite. 10/10.”
+            I was expecting a shorter wait time, but I understand there was heavy traffic then.
+            What I can say is that the operator was very professional and helped me a lot.
+            I needed a tow.
           </p>
-          <div class="review-author">— Sarah M., Seattle WA</div>
+          <div class="review-author">— J.M.</div>
         </div>
 
+        <!-- REVIEW 3 -->
         <div class="review-card reveal">
+          <div class="review-header">
+            <div class="review-meta">
+              <div class="review-stars"><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span></div>
+              <div>“Tire changed super fast.”</div>
+            </div>
+            <div class="review-photo">
+              <img src="review-tire.jpg" alt="Spare tire installed roadside">
+            </div>
+          </div>
           <p class="review-text">
-            “Best experience I’ve had with towing. Fair price, clear communication, no attitude. I would absolutely use them again.”
+            My tire was replaced very quickly.
           </p>
-          <div class="review-author">— Kevin R., Bonney Lake WA</div>
+          <div class="review-author">— K.B.</div>
+        </div>
+
+        <!-- REVIEW 4 -->
+        <div class="review-card reveal">
+          <div class="review-header">
+            <div class="review-meta">
+              <div class="review-stars"><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span></div>
+              <div>“Best price I found.”</div>
+            </div>
+          </div>
+          <p class="review-text">
+            It’s definitely cheaper than other towing companies.
+          </p>
+          <div class="review-author">— R.G.</div>
+        </div>
+
+        <!-- REVIEW 5 -->
+        <div class="review-card reveal">
+          <div class="review-header">
+            <div class="review-meta">
+              <div class="review-stars"><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span></div>
+              <div>“Came back again.”</div>
+            </div>
+            <div class="review-photo">
+              <img src="review-truck.jpg" alt="Yellow Apaxic towing truck transporting a pickup">
+            </div>
+          </div>
+          <p class="review-text">
+            This is my second time using this company’s services.
+          </p>
+          <div class="review-author">— D.L.</div>
+        </div>
+
+        <!-- REVIEW 6 -->
+        <div class="review-card reveal">
+          <div class="review-header">
+            <div class="review-meta">
+              <div class="review-stars"><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span><span class="star-icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l3.09 6.27 6.91.99-5 4.87 1.18 6.88L12 18.77l-6.18 3.24L7 14.63 2 9.76l6.91-1 3.09-6.26z"/></svg></span></div>
+              <div>“Battery jump in minutes.”</div>
+            </div>
+          </div>
+          <p class="review-text">
+            I thought my car had broken down, but it was just a dead battery.
+            Elijah is a real wizard — I was back on the road right away!
+          </p>
+          <div class="review-author">— M.T.</div>
         </div>
       </div>
-    </div>
-  </section>
+
+    </section>
 
   <!-- ABOUT -->
   <section class="about reveal" id="about">
