@@ -203,15 +203,10 @@
       font-size: .95rem;
       display: block;
     }
-    
-    /* hide burger when menu open */
-    .nav-burger-btn.hidden {
-      display: none;
-    }
-/* HERO */
+    /* HERO */
     .hero {
       position: relative;
-      min-height: 100vh;
+      min-height: 70vh;
       color: var(--text-light);
       display: flex;
       align-items: flex-end;
@@ -1144,8 +1139,6 @@ Ask for a quote by phone.
     const navOpenBtn = document.getElementById('navOpenBtn');
     const navCloseBtn = document.getElementById('navCloseBtn');
     const navOverlay = document.getElementById('navDropdown');
-    const navOpenBtnEl = document.getElementById('navOpenBtn');
-    const navCloseBtnEl = document.getElementById('navCloseBtn');
     const navLinks = document.querySelectorAll('.nav-link');
 
     function closeNav() {
@@ -1155,9 +1148,11 @@ Ask for a quote by phone.
       navOverlay.classList.add('active');
     }
 
-    navOpenBtn.addEventListener('click', () => {
-      navOverlay.classList.add('active');
-      navOpenBtnEl.classList.add('hidden');
+    navOpenBtn.addEventListener('click', openNav);
+    navCloseBtn.addEventListener('click', closeNav);
+    navOverlay.addEventListener('click', (e)=>{
+      // клик по тёмному фону тоже закрывает
+      if(e.target === navOverlay){ closeNav(); }
     });
     navLinks.forEach(link=>{
       link.addEventListener('click', closeNav);
@@ -1177,25 +1172,22 @@ Ask for a quote by phone.
       });
     });
 
-    // NAV dropdown logic
-    const navOverlay    = document.getElementById('navDropdown');
+    // NAV overlay logic
+    const navOverlay    = document.getElementById('navOverlay');
     const navOpenBtnEl  = document.getElementById('navOpenBtn');
     const navCloseBtnEl = document.getElementById('navCloseBtn');
     const navLinks      = document.querySelectorAll('.nav-close-on-click');
 
-    // open
     navOpenBtnEl.addEventListener('click', () => {
       navOverlay.classList.add('active');
       navOpenBtnEl.classList.add('hidden');
     });
 
-    // close by X
     navCloseBtnEl.addEventListener('click', () => {
       navOverlay.classList.remove('active');
       navOpenBtnEl.classList.remove('hidden');
     });
 
-    // close by clicking any link
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         navOverlay.classList.remove('active');
