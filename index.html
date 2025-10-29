@@ -1139,44 +1139,26 @@ Ask for a quote by phone.
     const navOpenBtn = document.getElementById('navOpenBtn');
     const navCloseBtn = document.getElementById('navCloseBtn');
     const navOverlay = document.getElementById('navDropdown');
+    const navOpenBtnEl = document.getElementById('navOpenBtn');
+    const navCloseBtnEl = document.getElementById('navCloseBtn');
     const navLinks = document.querySelectorAll('.nav-link');
-
-    function openNav() {
-      navOverlay.classList.add('active');
-      navOpenBtn.classList.add('hidden');
-    }
 
     function closeNav() {
       navOverlay.classList.remove('active');
-      navOpenBtn.classList.remove('hidden');
+    }
+    function openNav() {
+      navOverlay.classList.add('active');
     }
 
-    // open burger
-    navOpenBtn.addEventListener('click', openNav);
-
-    // close with X
-    navCloseBtn.addEventListener('click', closeNav);
-
-    // close when clicking any link
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        // smooth scroll if it's an anchor
-        const href = link.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          e.preventDefault();
-          const target = document.querySelector(href);
-          closeNav();
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-          }
-        } else {
-          closeNav();
-        }
-      });
+    navOpenBtn.addEventListener('click', () => {
+      navOverlay.classList.add('active');
+      navOpenBtnEl.classList.add('hidden');
+    });
+    navLinks.forEach(link=>{
+      link.addEventListener('click', closeNav);
     });
 
     // smooth scroll для якорей
-    ll для якорей
     navLinks.forEach(link=>{
       link.addEventListener('click', (e)=>{
         const href = link.getAttribute('href');
